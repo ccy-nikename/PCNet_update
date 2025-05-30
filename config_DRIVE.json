@@ -1,0 +1,63 @@
+{
+  "mode": "train",
+  "warming": true,
+
+  "preprocess": false,
+
+  "preprocess_setting":
+  {
+    "split_num": 30,
+    "data_path": "./data",
+    "data_sets": "DRIVE",
+    "data_sources":
+    {
+      "HRF": "./original_datasets/retina_data/HRF",
+      "DRIVE": "./original_datasets/retina_data/DRIVE",
+      "LES": "./original_datasets/retina_data/LES",
+      "STARE": "./original_datasets/retina_data/STARE/0",
+      "MoNuSeg": "./original_datasets/cell_data/MoNuSeg",
+      "covid19": "./original_datasets/covid19/covid19",
+      "BUS": "./original_datasets/BUS",
+      "GlaS": "./original_datasets/cell_data/GLAS",
+      "prostate": "./original_datasets/prostate",
+      "FIVES": "./original_datasets/retina_data/FIVES"
+    }
+  },
+
+  "model_setting":
+  {
+    "in_generate_channel": 1,
+    "in_progressive_channel": 3,
+    "out_channel": 1,
+    "inter_channel": 16,
+    "depth": 6
+  },
+
+  "train_setting":
+  {
+    "num_workers": 0,
+    "save_path": "./model",
+    "device": 0,
+    "path": "./data",
+    "lr": 1e-3,
+    "epoch": 50,
+    "decay_epoch": 30,
+    "decay_rate": 0.1,
+
+    "batch_size": 3,
+    "warming_epoch": 10
+  },
+
+  "test_setting":
+  {
+    "save_path": "./model",
+    "batch_size": 1,
+    "test_folder": "./result",
+    "device": 0
+  },
+
+  "dataloader_setting":
+  {
+    "path": "./data"
+  }
+}
